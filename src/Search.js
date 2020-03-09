@@ -28,7 +28,7 @@ export default class Search extends Component {
         const data = await request.get(`https://protected-savannah-71251.herokuapp.com/api/pokedex?search=${this.state.input}`)
         .set('Authorization', this.props.user.token);
 
-        // when the user clicks search, hit your search endpoint and set the results in state (and kill the loading state).
+  
         this.setState({
             pokemon: data.body,
             loading: false
@@ -47,7 +47,6 @@ export default class Search extends Component {
                 <button className="search-btn"disabled={this.state.loading}>Search!</button>
                 </form>
                 {
-                    // if loading, show loading, else, show list
                     this.state.loading 
                     ? "loading!!"
                     : <List 
